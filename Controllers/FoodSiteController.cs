@@ -30,8 +30,12 @@ namespace Practice_CoreApp_04_08.Controllers
                 users.Add(user);
             }
             conn.Close();
+
             Console.WriteLine("");
             Console.WriteLine("Constructor Implemented");
+
+
+            Console.WriteLine("Constructor implemented");
 
             ViewBag.Message = "";
         }

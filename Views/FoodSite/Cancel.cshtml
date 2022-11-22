@@ -1,0 +1,17 @@
+﻿@model Orders
+@{
+    ViewData["Title"] = "Cancel";  
+}
+
+<div class="" style="background-color:black; height:100vh; margin-top:30px; padding:40px;">
+    <h1 class="text-center mb-4 text-success mt-5">Order Cancelled</h1>
+    <form method="post" asp-controller="FoodSite" asp-action="History">
+        <div class="d-flex justify-content-center">
+            <div class="d-none">
+            <input name="user" value="@Model.UserName" />
+            </div>
+    <input type="submit" style="" value="Ok" class="btn btn-primary" />
+    </div>
+    </form>
+    
+</div>

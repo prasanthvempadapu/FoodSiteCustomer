@@ -1,0 +1,55 @@
+2022-09-16 13:33:00.536 +05:30 [INF] User profile is available. Using 'C:\Users\vempadapu_prasanth\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-16 13:33:00.832 +05:30 [INF] Now listening on: https://localhost:7037
+2022-09-16 13:33:00.832 +05:30 [INF] Now listening on: http://localhost:5037
+2022-09-16 13:33:00.835 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-16 13:33:00.835 +05:30 [INF] Hosting environment: Development
+2022-09-16 13:33:00.835 +05:30 [INF] Content root path: F:\Visual Studio Codes New\Practice_CoreApp_04-08\
+2022-09-16 13:33:06.997 +05:30 [INF] User profile is available. Using 'C:\Users\vempadapu_prasanth\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-16 13:33:07.293 +05:30 [INF] Now listening on: https://localhost:7037
+2022-09-16 13:33:07.294 +05:30 [INF] Now listening on: http://localhost:5037
+2022-09-16 13:33:07.297 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-16 13:33:07.297 +05:30 [INF] Hosting environment: Development
+2022-09-16 13:33:07.297 +05:30 [INF] Content root path: F:\Visual Studio Codes New\Practice_CoreApp_04-08\
+2022-09-16 13:33:08.483 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7037/ - -
+2022-09-16 13:33:08.568 +05:30 [INF] Executing endpoint 'Practice_CoreApp_04_08.Controllers.FoodSiteController.Index (CustomerApp)'
+2022-09-16 13:33:08.598 +05:30 [INF] Route matched with {action = "Index", controller = "FoodSite"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Practice_CoreApp_04_08.Controllers.FoodSiteController (CustomerApp).
+2022-09-16 13:33:08.976 +05:30 [INF] Executing ViewResult, running view Index.
+2022-09-16 13:33:09.224 +05:30 [INF] Executed ViewResult - view Index executed in 247.0007ms.
+2022-09-16 13:33:09.226 +05:30 [INF] Executed action Practice_CoreApp_04_08.Controllers.FoodSiteController.Index (CustomerApp) in 627.3184ms
+2022-09-16 13:33:09.227 +05:30 [INF] Executed endpoint 'Practice_CoreApp_04_08.Controllers.FoodSiteController.Index (CustomerApp)'
+2022-09-16 13:33:09.252 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7037/ - - - 200 - text/html;+charset=utf-8 778.0260ms
+2022-09-16 13:33:09.281 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7037/Practice_CoreApp_04_08.styles.css - -
+2022-09-16 13:33:09.281 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7037/_framework/aspnetcore-browser-refresh.js - -
+2022-09-16 13:33:09.284 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7037/Practice_CoreApp_04_08.styles.css - - - 404 0 - 3.2235ms
+2022-09-16 13:33:09.285 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7037/_framework/aspnetcore-browser-refresh.js - - - 200 11980 application/javascript;+charset=utf-8 3.7434ms
+2022-09-16 13:33:44.355 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7037/FoodSite/Display application/x-www-form-urlencoded 216
+2022-09-16 13:33:44.358 +05:30 [INF] Executing endpoint 'Practice_CoreApp_04_08.Controllers.FoodSiteController.Display (CustomerApp)'
+2022-09-16 13:33:44.370 +05:30 [INF] Route matched with {action = "Display", controller = "FoodSite"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Display(Practice_CoreApp_04_08.Models.Login) on controller Practice_CoreApp_04_08.Controllers.FoodSiteController (CustomerApp).
+2022-09-16 13:33:44.388 +05:30 [INF] Executing RedirectResult, redirecting to /.
+2022-09-16 13:33:44.388 +05:30 [INF] Executed action Practice_CoreApp_04_08.Controllers.FoodSiteController.Display (CustomerApp) in 17.919ms
+2022-09-16 13:33:44.388 +05:30 [INF] Executed endpoint 'Practice_CoreApp_04_08.Controllers.FoodSiteController.Display (CustomerApp)'
+2022-09-16 13:33:44.389 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7037/FoodSite/Display application/x-www-form-urlencoded 216 - 302 0 - 33.7982ms
+2022-09-16 13:33:44.393 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7037/ - -
+2022-09-16 13:33:44.393 +05:30 [INF] Executing endpoint 'Practice_CoreApp_04_08.Controllers.FoodSiteController.Index (CustomerApp)'
+2022-09-16 13:33:44.394 +05:30 [INF] Route matched with {action = "Index", controller = "FoodSite"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Practice_CoreApp_04_08.Controllers.FoodSiteController (CustomerApp).
+2022-09-16 13:33:44.395 +05:30 [INF] Executing ViewResult, running view Index.
+2022-09-16 13:33:44.410 +05:30 [INF] Executed ViewResult - view Index executed in 15.3472ms.
+2022-09-16 13:33:44.411 +05:30 [INF] Executed action Practice_CoreApp_04_08.Controllers.FoodSiteController.Index (CustomerApp) in 17.0211ms
+2022-09-16 13:33:44.411 +05:30 [INF] Executed endpoint 'Practice_CoreApp_04_08.Controllers.FoodSiteController.Index (CustomerApp)'
+2022-09-16 13:33:44.412 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7037/ - - - 200 - text/html;+charset=utf-8 19.1664ms
+2022-09-16 13:33:44.443 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7037/Practice_CoreApp_04_08.styles.css - -
+2022-09-16 13:33:44.443 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7037/Practice_CoreApp_04_08.styles.css - - - 404 0 - 0.3147ms
+2022-09-16 13:33:44.444 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7037/_framework/aspnetcore-browser-refresh.js - -
+2022-09-16 13:33:44.445 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7037/_framework/aspnetcore-browser-refresh.js - - - 200 11980 application/javascript;+charset=utf-8 0.3070ms
+2022-09-16 13:33:51.259 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7037/FoodSite/Display application/x-www-form-urlencoded 214
+2022-09-16 13:33:51.262 +05:30 [INF] Executing endpoint 'Practice_CoreApp_04_08.Controllers.FoodSiteController.Display (CustomerApp)'
+2022-09-16 13:33:51.262 +05:30 [INF] Route matched with {action = "Display", controller = "FoodSite"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Display(Practice_CoreApp_04_08.Models.Login) on controller Practice_CoreApp_04_08.Controllers.FoodSiteController (CustomerApp).
+2022-09-16 13:33:51.268 +05:30 [INF] Executing ViewResult, running view Display.
+2022-09-16 13:33:51.310 +05:30 [INF] Executed ViewResult - view Display executed in 43.4364ms.
+2022-09-16 13:33:51.311 +05:30 [INF] Executed action Practice_CoreApp_04_08.Controllers.FoodSiteController.Display (CustomerApp) in 48.6797ms
+2022-09-16 13:33:51.311 +05:30 [INF] Executed endpoint 'Practice_CoreApp_04_08.Controllers.FoodSiteController.Display (CustomerApp)'
+2022-09-16 13:33:51.312 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7037/FoodSite/Display application/x-www-form-urlencoded 214 - 200 - text/html;+charset=utf-8 53.7834ms
+2022-09-16 13:33:51.339 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7037/Practice_CoreApp_04_08.styles.css - -
+2022-09-16 13:33:51.339 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7037/Practice_CoreApp_04_08.styles.css - - - 404 0 - 0.2943ms
+2022-09-16 13:33:51.343 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7037/_framework/aspnetcore-browser-refresh.js - -
+2022-09-16 13:33:51.343 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7037/_framework/aspnetcore-browser-refresh.js - - - 200 11980 application/javascript;+charset=utf-8 0.2436ms

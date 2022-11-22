@@ -1,0 +1,57 @@
+﻿@using System.Data.SqlClient
+
+@model Order
+@{
+    List<Login> users = new List<Login>();
+    SqlConnection conn2 = new SqlConnection("Data Source=PSL-FL527L3;Initial Catalog=DEMO;Integrated Security=True;");
+            SqlCommand cmd2 = new SqlCommand("select * from users", conn2);
+            conn2.Open();
+            SqlDataReader sr1 = cmd2.ExecuteReader();
+            while (sr1.Read())
+            {
+                Login user = new Login(sr1["UserName"].ToString(), sr1["Password"].ToString());
+                users.Add(user);
+            }
+            conn2.Close();
+            
+        Login lg = users.Find(e => e.UserName == @Model.UserName);
+
+
+
+    ViewData["Title"] = "ConfirmOrder";
+    string name = @Model.OrderName;
+    int price = 0;
+    SqlConnection conn = new SqlConnection("Data Source=PSL-FL527L3;Initial Catalog=master;Integrated Security=True;");
+    SqlCommand cmd = new SqlCommand(String.Format("select * from Menu where Item='{0}'",name), conn);
+    conn.Open();
+    SqlDataReader sr = cmd.ExecuteReader();
+    while (sr.Read())
+    {
+        price = Convert.ToInt32(sr["Price"]);
+    }
+    conn.Close();
+    int total = price * Convert.ToInt32(@Model.Quantity);
+}
+<div class="d-flex justify-content-center mt-5" style=" background-color:black; height:100vh;">
+    <div class="m-5">
+        <div>
+            <h1 class="text-danger text-center">Confirm your Order</h1>
+                <p style="font-size:30px; font-weight:bold;" class="text-success">Item: <span style="font-size:30px ;" class="text-white">@Model.OrderName</span></p>
+                <p style="font-size:30px ; font-weight:bold;" class="text-success">Quantity: <span class="text-white">@Model.Quantity</span></p>
+                <p style="font-size:30px ; font-weight:bold;" class="text-success">Total Amount: <span class="text-white">@total</span></p>
+                <p style="font-size:30px ; font-weight:bold;"class="text-success">Address: <span class="text-white">@Model.Address</span></p>
+                <form method="post" asp-controller="FoodSite" asp-action="Order">
+                    <input class="d-none" value="@Model.OrderName" asp-for="OrderName" />
+                    <input class="d-none" value="@Model.Quantity" asp-for="Quantity" />
+                    <input class="d-none" value="@Model.Address" asp-for="Address" />
+                    <input class="d-none" value="@Model.UserName" asp-for="UserName" />
+                    <input class="d-none" value="@total" asp-for="Price"/>
+                    
+                    <input style="margin-right:20px;" value="Confirm" class="btn btn-primary" type="submit" />
+                    <input name="cancel" value="Cancel" class="btn btn-danger" type="submit" />
+                </form>
+                
+            
+        </div>
+    </div>
+</div>

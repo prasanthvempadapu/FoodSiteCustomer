@@ -1,0 +1,141 @@
+﻿@using System.Data.SqlClient
+@model Login
+@{
+    ViewData["Title"] = "History";
+
+
+    List<Order> ol = new List<Order>();
+    SqlConnection conn = new SqlConnection("Data Source=PSL-FL527L3;Initial Catalog=DEMO;Integrated Security=True;");
+    SqlCommand cmd = new SqlCommand(String.Format("select * from Orders where userName = '{0}'", @ViewBag.user), conn);
+    conn.Open();
+    SqlDataReader sr = cmd.ExecuteReader();
+    while(sr.Read())
+    {
+        Order o = new Order(Convert.ToInt32(sr["Id"]),sr["userName"].ToString(),sr["OrderName"].ToString(),sr["Quantity"].ToString(),Convert.ToInt32(sr["Price"]),sr["Address"].ToString());
+        ol.Add(o);
+    }
+    conn.Close();
+
+    List<Orders> cl = new List<Orders>();
+    SqlConnection conn2 = new SqlConnection("Data Source=PSL-FL527L3;Initial Catalog=DEMO;Integrated Security=True;");
+    SqlCommand cmd2 = new SqlCommand(String.Format("select * from CompletedOrders where userName = '{0}'", @ViewBag.user), conn2);
+    conn2.Open();
+    SqlDataReader sr2 = cmd2.ExecuteReader();
+    while(sr2.Read())
+    {
+        Orders o2 = new Orders(Convert.ToInt32(sr2["Id"]),sr2["userName"].ToString(),sr2["OrderName"].ToString(),sr2["Quantity"].ToString(),Convert.ToInt32(sr2["Price"]),sr2["Address"].ToString(),sr2["Status"].ToString());
+        cl.Add(o2);
+    }
+    conn2.Close();
+
+    List<Login> users = new List<Login>();
+    SqlConnection conn3 = new SqlConnection("Data Source=PSL-FL527L3;Initial Catalog=DEMO;Integrated Security=True;");
+            SqlCommand cmd3 = new SqlCommand("select * from users", conn3);
+            conn3.Open();
+            SqlDataReader sr1 = cmd3.ExecuteReader();
+            while (sr1.Read())
+            {
+                Login user = new Login(sr1["UserName"].ToString(), sr1["Password"].ToString());
+                users.Add(user);
+            }
+            conn3.Close();
+            
+        Login lg = users.Find(e => e.UserName == @ViewBag.user);
+        
+}
+<div style="background-color:black;  padding:40px;">
+    <div>
+        <form method="post" asp-controller="FoodSite" asp-action="Display">
+        
+        <div class="d-none">
+        <label style="width:80px" class="m-4" asp-for="UserName">User Id</label>
+        <input placeholder="Username" class="" type="text" value="@lg.UserName" asp-for="UserName"/>
+        
+    </div>
+    <div class="d-none">
+        <label style="width:80px" class="m-4" asp-for="Password">Password</label>
+        <input style="height:30px" placeholder="Password" value="@lg.Password" class="" type="password" asp-for="Password"/>
+        
+    </div>
+    <div class="d-flex justify-content-end">
+        <input id="button" type="submit" value="Back" class="btn btn-danger" />
+        </div>
+                
+    </form>
+    </div>
+    <div>
+        <h2 class="text-primary">Current Orders</h2>
+        <table class="table table-borderless">
+            <thead style="color:white;">
+                <tr>
+                    
+                    <th>Item</th>
+                    <th>Qty</th>
+                    <th>Amount</th>
+                    <th>Address</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var i in ol)
+                {
+                    <tr class="text-white">
+                       
+                        <td>@i.OrderName</td>
+                        <td>@i.Quantity</td>
+                        <td>@i.Price</td>
+                        <td>@i.Address</td>
+                        
+                        <td style="font-weight:bold;" class="text-primary">On the Way</td>
+                        <td>@Html.ActionLink("Cancel","Cancel",new {id=i.Id})</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <h2 class="text-success">Completed Orders</h2>
+        <table class="table table-borderless">
+            <thead style="color:white;">
+                <tr>
+                  
+                    <th>Item</th>
+                    <th>Qty</th>
+                    <th>Amount</th>
+                    <th>Address</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var i in cl)
+                {
+                    @if(i.Status=="Delivered"){
+                        <tr class="text-white">
+                        
+                        <td>@i.OrderName</td>
+                        <td>@i.Quantity</td>
+                        <td>@i.Price</td>
+                        <td>@i.Address</td>
+                        
+                        <td style="font-weight:bold;" class="text-success">Delivered</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr class="text-white">
+                        
+                        <td>@i.OrderName</td>
+                        <td>@i.Quantity</td>
+                        <td>@i.Price</td>
+                        <td>@i.Address</td>
+                        
+                        <td style="font-weight:bold;" class="text-danger">Cancelled</td>
+                        </tr>
+                    }
+
+                }
+            </tbody>
+        </table>
+    </div>
+    
+</div>

@@ -1,0 +1,90 @@
+﻿@model Order
+@{
+    ViewData["Title"] = "Display";
+    
+}
+<div style="background-color:black; height:100vh;" class="m-0">
+    <div class="d-flex justify-content-between m-5 pt-5">
+        <h1 class="text-white ">
+            Welcome <span class="text-success" >@ViewBag.Message</span>
+        </h1>
+        <p style="font-size:25px">@Html.ActionLink("Log Out","Index")</p>
+    </div>
+    <div style="margin-left:45px;">
+        <form asp-controller="FoodSite" asp-action="History" method="post">
+            <input class="d-none" name="user" value=@ViewBag.Message />
+            <input class="btn-secondary btn" type="submit" value="Orders" />
+        </form>
+    </div>
+    
+    <div class="d-flex justify-content-center">
+    <div>
+    <h1 class="text-danger">Provide your Order Details</h1>
+    <form method="post" asp-controller="FoodSite" asp-action="ConfirmOrder">
+        <div class="">
+            
+    
+            <label  style="width:80px" class="m-4 d-none" asp-for="UserName">Username</label>
+           
+            <input  value="@ViewBag.Message" class="d-none" type="text" asp-for="UserName"/>
+            <span class="text-danger" asp-validation-for="UserName"></span>
+        </div>
+        <div class="">
+            <label  style="width:180px; font-weight:bold;" class="m-4 text-white" asp-for="OrderName">Please select your Item</label>
+            <select id="menu" asp-for="OrderName">
+                <option  name="menu" value="">Menu</option>
+                <option name="menu" value=""></option>
+                <option name="menu" value="Veg Pizza">Veg Pizza    -    Rs.149</option>
+                <option name="menu" value="Chicken Pizza">Chicken Pizza    -    Rs.199</option>
+                <option name="menu" value="Gobi Manchuria">Gobi Manchuria    -    Rs.110</option>
+                <option name="menu" value="Chicken Manchuria">Chicken Manchuria    -    Rs.130</option>
+                <option name="menu" value="Veg Sandwich">Veg Sandwich    -    Rs.99</option>
+                <option name="menu" value="Chicken Sandwich">Chicken Sandwich    -    Rs.129</option>
+                <option name="menu" value="Chicken Grilled Sandwich">Chicken Grilled Sandwich    -    Rs.149</option>
+                <option name="menu" value="Paneer Tikka">Paneer Tikka    -    Rs.160</option>
+                <option name="menu" value="Paneer Butter Masala">Paneer Butter Masala    -    Rs.190</option>
+                <option name="menu" value="Chilli Paneer">Chilli Paneer    -    Rs.210</option>
+                <option name="menu" value="Chilli Chicken">Chilli Chicken    -    Rs.220</option>
+                <option name="menu" value="Veg Biriyani">Veg Biriyani    -    Rs.189</option>
+                <option name="menu" value="Chicken Biriyani">Chicken Biriyani    -    Rs.230</option>
+                <option name="menu" value="Chicken Special Biriyani">Chicken Special Biriyani    -    Rs.260</option>
+                <option name="menu" value="Mutton Biriyani">Mutton Biriyani    -    Rs.290</option>
+                <option name="menu" value="Butter Naan">Butter Naan    -    Rs.80</option>
+                <option name="menu" value="Double Ka Meeta">Double Ka Meeta    -    Rs.120</option>
+                <option name="menu" value="Gulab Jamun">Gulab Jamun    -    Rs.99</option>
+            </select>
+            
+            <span class="text-danger" asp-validation-for="OrderName"></span>
+        </div>
+        <div class="">
+            <label  style="width:180px; font-weight:bold;" class="m-4 text-white" asp-for="Quantity">Select Quantity</label>
+            <select id="menu" asp-for="Quantity">
+                <option name="quantity" value="1">1</option>
+                <option name="quantity" value="2">2</option>
+                <option name="quantity" value="3">3</option>
+                <option name="quantity" value="4">4</option>
+                <option name="quantity" value="5">5</option>
+                <option name="quantity" value="6">6</option>
+                <option name="quantity" value="7">7</option>
+                <option name="quantity" value="8">8</option>
+                <option name="quantity" value="9">9</option>
+                <option name="quantity" value="10">10</option>
+    
+            </select>
+            
+            <span class="text-danger" asp-validation-for="Quantity"></span>
+        </div>
+        <div class="">
+            <label  style="width:180px; font-weight:bold;" class="m-4 text-white" asp-for="Address">Enter Delivery Address</label>
+            <textarea placeholder="Address" asp-for="Address"></textarea>
+            
+            <span class="text-danger" asp-validation-for="Address"></span>
+        </div>
+        
+        <input type="submit" value="Place Order" class=" btn btn-primary " />
+       
+    </form>
+    
+    </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+﻿@model Login
+@{
+    ViewData["Title"] = "Index";
+}
+<div style="background-image: url('https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/foodmunch-banner-bg.png'); background-size:cover; width:100vw; height:100vh;">
+@if(ViewBag.login=="")
+{
+    <div class=" d-flex justify-content-center">
+        <img  style="height:130px; width:130px; margin-top:30px;" src="https://tse2.mm.bing.net/th/id/OIP.mHD5PEdxPmwhknCmMhdgxAHaHa?pid=ImgDet&rs=1" />
+    </div>
+     <h1 style="color:#ff6e31;" class="pt-2 text-center ">Persistent's Cafeteria</h1>
+<h2 class="text-center text-primary">Log in to your Account</h2>
+<p class="text-danger pl-5 text-center mt-4">Invalid Credentials!</p>
+<form method="post" asp-controller="FoodSite" asp-action="Display">
+    <div class="d-flex justify-content-center">
+    <div>
+    <div class="">
+        <label style="width:80px; color:white; font-weight:bold;" class="m-4" asp-for="UserName">User Id</label>
+        <input required placeholder="Username" style="border-style:solid;  border-color:red;" type="text" asp-for="UserName"/>
+        <span style="font-size:small; " class="text-danger" asp-validation-for="UserName"></span>
+    </div>
+    <div class="">
+        <label style="width:80px; color:white; font-weight:bold;" class="m-4" asp-for="Password">Password</label>
+        <input required style="border-style:solid;  border-color:red;" placeholder="Password" class="" type="password" asp-for="Password"/>
+        <span style="font-size:small;" class="text-danger " asp-validation-for="Password"></span>
+    </div>
+    <div>
+    <input style="margin:30px" type="submit" class="btn btn-primary" value="Log in"/>
+    @*@Html.ActionLink("Create Account","CreateAccount")*@
+    <a style="color:white; font-weight:bold; " asp-controller="FoodSite" asp-action="CreateAccount">CreateAccount</a>
+    </div>
+    </div>
+    </div>
+</form>
+}
+else
+{
+     <div class=" d-flex justify-content-center">
+        <img  style="height:130px; width:130px; margin-top:30px;" src="https://tse2.mm.bing.net/th/id/OIP.mHD5PEdxPmwhknCmMhdgxAHaHa?pid=ImgDet&rs=1" />
+    </div>
+     <h1 style="color:#ff6e31;" class="pt-2 text-center ">Persistent's Cafeteria</h1>
+<h2  class="text-center text-primary">Log in to your Account</h2>
+<form method="post" asp-controller="FoodSite" asp-action="Display">
+    <div class="d-flex justify-content-center">
+    <div>
+    <div class="">
+        <label style="width:80px; color:white; font-weight:bold;" class="m-4" asp-for="UserName">User Id</label>
+        <input required placeholder="Username" class="" type="text" asp-for="UserName"/>
+        <span class="text-danger" asp-validation-for="UserName"></span>
+    </div>
+    <div class="">
+        <label style="width:80px; color:white; font-weight:bold;" class="m-4" asp-for="Password">Password</label>
+        <input required style="height:30px border:0px;" placeholder="Password" class="" type="password" asp-for="Password"/>
+        <span class="text-danger" asp-validation-for="Password"></span>
+    </div>
+    <input style="margin:30px" type="submit" class="btn btn-primary" value="Login"/>
+    @Html.ActionLink("Create Account","CreateAccount")
+    </div>
+    </div>
+</form>
+}
+</div>
